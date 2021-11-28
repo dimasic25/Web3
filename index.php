@@ -65,101 +65,25 @@ require 'database/DB.php';
     <?php require_once 'views/layouts/header.php'; ?>
 
     <main class="content">
-        <?php
-        $db = new DB();
-        $screenshots = $db->getScreenshots();
-        ?>
+            <?php
+            $db = new DB();
+            $screenshots = $db->getScreenshots(0);
+            ?>
 
-        <?php foreach ($screenshots as $screenshot): ?>
+            <?php foreach ($screenshots as $screenshot): ?>
 
-            <div class="card">
-                <img src="data:image/jpeg;base64, <?php echo base64_encode($screenshot['img']) ?>" class="card__photo" alt="Нет фото"/>
-                <div class="card__info">
-                    <span class="card__name"> <?php echo $screenshot['name'] ?></span>
-                    <span class="card__data-added"><?php echo $screenshot['date'] ?></span>
+                <div class="card id=<?= $screenshot['id'] ?>">
+                    <img src="data:image/jpeg;base64, <?= base64_encode($screenshot['img']) ?>" class="card__photo"
+                         alt="Нет фото"/>
+                    <div class="card__info">
+                        <span class="card__name"> <?= $screenshot['name'] ?></span>
+                        <span class="card__data-added"><?= $screenshot['date_added'] ?></span>
+                    </div>
                 </div>
-            </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
 
-        <!--        <div class="card">-->
-        <!--            <img src="img/img1.jpg" alt="Нет фото" class="card__photo">-->
-        <!--            <div class="card__info">-->
-        <!--                <span class="card__name">Тёмный рыцарь</span>-->
-        <!--                <span class="card__data-added">22.11.2021</span>-->
-        <!--            </div>-->
-        <!--        </div>-->
-        <!---->
-        <!--        <div class="card">-->
-        <!--            <img src="img/img2.jpg" alt="Нет фото" class="card__photo">-->
-        <!--            <div class="card__info">-->
-        <!--                <span class="card__name">Начало</span>-->
-        <!--                <span class="card__data-added">22.11.2021</span>-->
-        <!--            </div>-->
-        <!--        </div>-->
-        <!---->
-        <!--        <div class="card">-->
-        <!--            <img src="img/img3.jpg" alt="Нет фото" class="card__photo">-->
-        <!--            <div class="card__info">-->
-        <!--                <span class="card__name">Довод</span>-->
-        <!--                <span class="card__data-added">22.11.2021</span>-->
-        <!--            </div>-->
-        <!--        </div>-->
-        <!---->
-        <!--        <div class="card">-->
-        <!--            <img src="img/img4.jpg" alt="Нет фото" class="card__photo">-->
-        <!--            <div class="card__info">-->
-        <!--                <span class="card__name">Бэтмен: Начало</span>-->
-        <!--                <span class="card__data-added">22.11.2021</span>-->
-        <!--            </div>-->
-        <!--        </div>-->
-        <!---->
-        <!--        <div class="card">-->
-        <!--            <img src="img/img5.jpg" alt="Нет фото" class="card__photo">-->
-        <!--            <div class="card__info">-->
-        <!--                <span class="card__name">Универсальный солдат</span>-->
-        <!--                <span class="card__data-added">22.11.2021</span>-->
-        <!--            </div>-->
-        <!--        </div>-->
-        <!---->
-        <!--        <div class="card">-->
-        <!--            <img src="img/img6.jpg" alt="Нет фото" class="card__photo">-->
-        <!--            <div class="card__info">-->
-        <!--                <span class="card__name">Рокки 4</span>-->
-        <!--                <span class="card__data-added">22.11.2021</span>-->
-        <!--            </div>-->
-        <!--        </div>-->
-        <!---->
-        <!--        <div class="card">-->
-        <!--            <img src="img/img7.jpg" alt="Нет фото" class="card__photo">-->
-        <!--            <div class="card__info">-->
-        <!--                <span class="card__name">Острые козырьки</span>-->
-        <!--                <span class="card__data-added">22.11.2021</span>-->
-        <!--            </div>-->
-        <!--        </div>-->
-        <!---->
-        <!--        <div class="card">-->
-        <!--            <img src="img/img8.jpg" alt="Нет фото" class="card__photo">-->
-        <!--            <div class="card__info">-->
-        <!--                <span class="card__name">Страшные истории для рассказа в темноте</span>-->
-        <!--                <span class="card__data-added">22.11.2021</span>-->
-        <!--            </div>-->
-        <!--        </div>-->
-        <!---->
-        <!--        <div class="card">-->
-        <!--            <img src="img/img9.jpg" alt="Нет фото" class="card__photo">-->
-        <!--            <div class="card__info">-->
-        <!--                <span class="card__name">Игра в кальмара</span>-->
-        <!--                <span class="card__data-added">22.11.2021</span>-->
-        <!--            </div>-->
-        <!--        </div>-->
-        <!---->
-        <!--        <div class="card">-->
-        <!--            <img src="img/img10.jpg" alt="Нет фото" class="card__photo">-->
-        <!--            <div class="card__info">-->
-        <!--                <span class="card__name">Фантастические твари: Преступления Грин-де-вальда</span>-->
-        <!--                <span class="card__data-added">22.11.2021</span>-->
-        <!--            </div>-->
-        <!--        </div>-->
+        <button class="btn more_cards">Показать еще</button>
+
     </main>
 
     <?php require_once 'views/layouts/footer.php'; ?>

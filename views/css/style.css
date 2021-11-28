@@ -169,14 +169,18 @@ body {
 }
 
 .content {
+    margin-top: 25px;
     display: flex;
     justify-content: center;
     flex: 1 1 auto;
-    margin-top: 25px;
     flex-wrap: wrap;
     column-gap: 30px;
     row-gap: 30px;
     align-items: baseline;
+}
+
+.more_cards {
+    width: 300px;
 }
 
 .card {

@@ -24,10 +24,12 @@ class DB
         }
     }
 
-    public function getScreenshots() : array
+    public function getScreenshots($id) : array
     {
-        $sql = "SELECT * FROM screenshot";
+        $sql = "SELECT * FROM screenshot WHERE id >= ? LIMIT 10";
+
         $screenshots = $this->pdo->prepare($sql);
+        $screenshots->bindValue(1, $id, PDO::PARAM_INT);
         $screenshots->execute();
         $result = $screenshots->fetchAll(PDO::FETCH_ASSOC);
 
