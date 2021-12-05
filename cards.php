@@ -25,4 +25,7 @@ if (count($cards) > 0):
             </div>
         </div>
     <?php endforeach; ?>
+    <?php if (count($cards) == 10): ?>
+    <button class="btn more_cards" onclick="load_more()">Показать еще</button>
+<?php endif; ?>
 <?php endif; ?>

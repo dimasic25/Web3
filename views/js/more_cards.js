@@ -1,33 +1,32 @@
-document.addEventListener("DOMContentLoaded", function () {
-    let scrollBtn = document.querySelector(".more_cards");
-    scrollBtn.addEventListener('click', load_more);
+let scrollBtn = document.querySelector(".more_cards");
+scrollBtn.addEventListener('click', load_more);
 
-    function load_more(e) {
-        e.preventDefault();
+function load_more() {
+    scrollBtn = document.querySelector(".more_cards");
+    console.log("Вход в функцию");
+    let id = 0
+    let cards = document.getElementsByClassName("card");
 
-        let id = 0
-        let cards = document.getElementsByClassName("card");
-
+    if (cards) {
+        cards = cards[cards.length - 1];
         if (cards) {
-            cards = cards[cards.length - 1];
-            if (cards) {
-                id = cards.getAttribute('data-id');
-            }
+            id = cards.getAttribute('data-id');
         }
-
-        let url = '/cards.php/?id=' + id;
-        let request = new XMLHttpRequest();
-        request.open("GET", url);
-
-        request.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status === 200) {
-                if (this.responseText.length !== 0) {
-                    scrollBtn.parentNode.removeChild(scrollBtn);
-                    document.getElementsByClassName("content")[0].innerHTML += this.responseText;
-                }
-            }
-        }
-
-        request.send();
     }
-})
+
+    let url = '/cards.php/?id=' + id;
+    let request = new XMLHttpRequest();
+    request.open("GET", url);
+
+    request.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+            if (this.responseText.length !== 0) {
+                scrollBtn.parentNode.removeChild(scrollBtn);
+                document.getElementsByClassName("content")[0].innerHTML += this.responseText;
+            }
+        }
+    }
+
+    request.send();
+}
+
