@@ -67,12 +67,12 @@ require 'database/DB.php';
     <main class="content">
             <?php
             $db = new DB();
-            $screenshots = $db->getScreenshots(0);
+            $screenshots = $db->getScreenshots(1);
             ?>
 
             <?php foreach ($screenshots as $screenshot): ?>
 
-                <div class="card id=<?= $screenshot['id'] ?>">
+                <div class="card" data-id=<?= $screenshot['id'] ?>>
                     <img src="data:image/jpeg;base64, <?= base64_encode($screenshot['img']) ?>" class="card__photo"
                          alt="Нет фото"/>
                     <div class="card__info">
@@ -90,5 +90,6 @@ require 'database/DB.php';
 </div>
 
 <script src="views/js/script.js"></script>
+<script src="views/js/more_cards.js"></script>
 </body>
 </html>
