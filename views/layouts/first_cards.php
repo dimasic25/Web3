@@ -1,17 +1,8 @@
 <?php
 
-include "database/DB.php";
-
-$id = intval(@$_GET['id']);
-
-if (!is_numeric($id)) {
-    die();
-}
-
-
 $pdo = new DB();
 
-$cards = $pdo->getScreenshots($id);
+$cards = $pdo->getScreenshots(1);
 
 if (count($cards) > 0):
     foreach ($cards as $screenshot): ?>

@@ -9,7 +9,7 @@ class DB
         $this->connect();
     }
 
-    private function connect() : DB
+    private function connect(): DB
     {
         try {
             if (!($config = parse_ini_file("config/config.ini"))) {
@@ -28,8 +28,7 @@ class DB
     {
         if ($id == 1) {
             $sql = "SELECT * FROM screenshot WHERE id >= ? ORDER BY id DESC LIMIT 10";
-        }
-        else {
+        } else {
             $sql = "SELECT * FROM screenshot WHERE id < ? ORDER BY id DESC LIMIT 10";
         }
 
@@ -41,4 +40,15 @@ class DB
         return $result;
     }
 
+    public function getScreenshotById($id)
+    {
+        $sql = "SELECT name, img, date_added FROM screenshot WHERE id = ?";
+
+        $screenshot = $this->pdo->prepare($sql);
+        $screenshot->bindValue(1, $id, PDO::PARAM_INT);
+        $screenshot->execute();
+        $result = $screenshot->fetch();
+
+        return $result;
+    }
 }

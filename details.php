@@ -1,5 +1,15 @@
 <?php
 require 'database/DB.php';
+
+$id = intval(@$_GET['id']);
+
+if (!is_numeric($id)) {
+    die();
+}
+
+$pdo = new DB();
+
+$screenshot = $pdo->getScreenshotById($id);
 ?>
 
 <!DOCTYPE html>
@@ -66,14 +76,21 @@ require 'database/DB.php';
 
     <main class="content">
 
-        <?php require_once 'views/layouts/first_cards.php' ?>
+            <div class="card-details">
+                <img src="data:image/jpeg;base64, <?= base64_encode($screenshot['img']) ?>" class="card-details__photo"
+                     alt="Нет фото"/>
+                <div class="card-details__info">
+                    <span class="card-details__name"> <?= $screenshot['name'] ?></span>
+                    <span class="card-details__data-added"><?= $screenshot['date_added'] ?></span>
+                </div>
+            </div>
 
+        <a href="index.php"><button class="btn">Назад</button></a>
     </main>
 
     <?php require_once 'views/layouts/footer.php'; ?>
 </div>
 
 <script src="views/js/script.js"></script>
-<script src="views/js/more_cards.js"></script>
 </body>
 </html>

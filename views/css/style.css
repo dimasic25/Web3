@@ -211,6 +211,28 @@ body {
     transition: all 0.2s linear;
 }
 
+.card-details {
+    width: 600px;
+}
+
+.card-details__photo {
+    width: 600px;
+    height: 550px;
+    object-fit: cover;
+}
+
+.card-details__info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.card-details__info * {
+    color: rgb(255, 76, 91);
+    transition: all 0.2s linear;
+}
+
 .footer {
     display: flex;
     flex: 0 0 auto;
