@@ -189,8 +189,15 @@ body {
 }
 
 .card:hover {
-    cursor: pointer;
     transform: scale(1.03);
+}
+
+.card__link:hover {
+    color: rgb(219, 192, 18);
+}
+
+.card__name:hover {
+    color: rgb(219, 192, 18);
 }
 
 .card__photo {

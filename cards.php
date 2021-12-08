@@ -20,7 +20,7 @@ if (count($cards) > 0):
             <img src="data:image/jpeg;base64, <?= base64_encode($screenshot['img']) ?>" class="card__photo"
                  alt="Нет фото"/>
             <div class="card__info">
-                <a href= <?= "/details.php?id=" . $screenshot['id'] ?>><span class="card__name"> <?= $screenshot['name'] ?></span></a>
+                <a class="card__link" href= <?= "/details.php?id=" . $screenshot['id'] ?>><span class="card__name"> <?= $screenshot['name'] ?></span></a>
                 <span class="card__data-added"><?= $screenshot['date_added'] ?></span>
             </div>
         </div>
