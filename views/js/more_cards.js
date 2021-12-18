@@ -3,7 +3,7 @@ scrollBtn.addEventListener('click', load_more);
 
 function load_more() {
     scrollBtn = document.querySelector(".more_cards");
-    console.log("Вход в функцию");
+
     let id = 0
     let cards = document.getElementsByClassName("card");
 

@@ -40,12 +40,12 @@ class DB
         return $result;
     }
 
-    public function getScreenshotById($id)
+    public function getScreenshotByUuid($uuid)
     {
-        $sql = "SELECT name, img, date_added FROM screenshot WHERE id = ?";
+        $sql = "SELECT name, img, date_added, uuid FROM screenshot WHERE uuid = ?";
 
         $screenshot = $this->pdo->prepare($sql);
-        $screenshot->bindValue(1, $id, PDO::PARAM_INT);
+        $screenshot->bindValue(1, $uuid);
         $screenshot->execute();
         $result = $screenshot->fetch();
 

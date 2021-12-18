@@ -41,8 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
     for (var i = 0; i < loginInputs.length; i++) {
         let loginInput = loginInputs[i];
 
-        loginInput.addEventListener("input", function (e)
-        {
+        loginInput.addEventListener("input", function (e) {
             var validity = loginInput.validity;
             if (validity.patternMismatch) {
                 loginInput.setCustomValidity("В логине допустимы только русские буквы, пробелы и дефисы");
@@ -63,8 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
     for (i = 0; i < passwordInputs.length; i++) {
         let passwordInput = passwordInputs[i];
 
-        passwordInput.addEventListener("input", function (e)
-        {
+        passwordInput.addEventListener("input", function (e) {
             var validity = passwordInput.validity;
             var min = passwordInput.getAttribute("minlength");
             if (validity.patternMismatch) {
@@ -83,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const repeatPassword = document.querySelector(".repeat-password");
 
-    repeatPassword.addEventListener("input", function (e)  {
+    repeatPassword.addEventListener("input", function (e) {
         let passwordValue = document.querySelector(".password").value;
 
         if (repeatPassword.value !== passwordValue) {
@@ -95,24 +93,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const emailInput = document.querySelector(".email");
 
-    emailInput.addEventListener("input", function (e)
-    {
+    emailInput.addEventListener("input", function (e) {
         var validity = emailInput.validity;
         if (validity.patternMismatch) {
             emailInput.setCustomValidity("Введена некорректная почта");
-        }  else {
+        } else {
             emailInput.setCustomValidity("");
         }
     })
 
     const phoneInput = document.querySelector(".phone");
 
-    phoneInput.addEventListener("input", function (e)
-    {
+    phoneInput.addEventListener("input", function (e) {
         var validity = phoneInput.validity;
         if (validity.patternMismatch) {
             phoneInput.setCustomValidity("Введён некорректный телефон");
-        }  else {
+        } else {
             phoneInput.setCustomValidity("");
         }
     })
