@@ -1,9 +1,9 @@
 <?php
-require 'database/DB.php';
+require 'database/ScreenshotPdo.php';
 
 $uuid = @$_GET['uuid'];
 
-$pdo = new DB();
+$pdo = new ScreenshotPdo();
 
 $screenshot = $pdo->getScreenshotByUuid($uuid);
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-include "database/DB.php";
+include "database/ScreenshotPdo.php";
 
 $id = intval(@$_GET['id']);
 
@@ -9,7 +9,7 @@ if (!is_numeric($id)) {
 }
 
 
-$pdo = new DB();
+$pdo = new ScreenshotPdo();
 
 $cards = $pdo->getScreenshots($id);
 

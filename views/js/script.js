@@ -117,11 +117,54 @@ document.addEventListener("DOMContentLoaded", function () {
 
     signInForm.addEventListener("submit", function (e) {
         e.preventDefault();
+        let authForm = new FormData();
+
+        let loginInput = document.querySelector(".sign-in__form__login");
+        let passwordInput = document.querySelector(".sign-in__form__password");
+
+        authForm.append('login', loginInput.value);
+        authForm.append('password', passwordInput.value);
+
+        fetch('auth.php', {
+            method: 'POST',
+            body: authForm
+        }).then(response => response.json())
+            .then(result => {
+                if (result.errors) {
+                    alert(result.errors)
+                } else {
+                    window.location.reload();
+                }
+            }).catch(error => console.log(error));
     })
 
     const signUpForm = document.querySelector(".sign-up__form");
 
     signUpForm.addEventListener("submit", function (e) {
         e.preventDefault();
-    })
+        let registerForm = new FormData();
+        let loginInput = document.querySelector(".sign-up__form__login");
+        let passwordInput = document.querySelector(".sign-up__form__password");
+
+        registerForm.append('login', loginInput.value);
+        registerForm.append('password', passwordInput.value);
+        registerForm.append('email', emailInput.value);
+        registerForm.append('phone', phoneInput.value);
+
+        fetch('register.php', {
+                method: 'POST',
+                body: registerForm
+            }
+        )
+            .then(response => response.json())
+            .then(result => {
+                console.log(result);
+                if (result.errors) {
+                    alert(result.errors);
+                } else {
+                    location.href = location.href;
+                }
+            })
+            .catch(error => console.log(error));
+    });
 });

@@ -4,8 +4,13 @@
     </div>
 
     <div class="header__buttons">
-        <button class="header__sign-in-btn btn">Войти</button>
-        <button class="header__sign-up-btn btn">Зарегистрироваться</button>
+        <?php if (!isset($_SESSION['userLogin'])): ?>
+            <button class="header__sign-in-btn btn">Войти</button>
+            <button class="header__sign-up-btn btn">Зарегистрироваться</button>
+        <?php else: ?>
+            <p class="header__login">Привет, <?= $_SESSION['userLogin'] ?></p>
+            <a class="header__logout-btn btn" href="/logout.php">Выйти</a>
+        <?php endif; ?>
     </div>
 
 

@@ -140,6 +140,16 @@ body {
     align-items: center;
 }
 
+.header__login {
+    color: white;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.header__logout-btn {
+    text-decoration: none;
+}
+
 .header__title {
     font-size: 50px;
     font-weight: bold;

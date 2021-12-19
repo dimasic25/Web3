@@ -1,6 +1,7 @@
 <?php
+require "database/ScreenshotPdo.php";
 
-$pdo = new DB();
+$pdo = new ScreenshotPdo();
 
 $cards = $pdo->getScreenshots(1);
 
