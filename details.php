@@ -31,7 +31,7 @@ $screenshot = $pdo->getScreenshotByUuid($uuid);
     <main class="content">
 
         <div class="card-details">
-            <img src="data:image/jpeg;base64, <?= base64_encode($screenshot['img']) ?>" class="card-details__photo"
+            <img src=<?= $screenshot['url'] ?> class="card-details__photo"
                  alt="Нет фото"/>
             <div class="card-details__info">
                 <span class="card-details__name"> <?= $screenshot['name'] ?></span>

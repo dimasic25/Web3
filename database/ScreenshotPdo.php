@@ -23,7 +23,7 @@ class ScreenshotPdo extends DB
 
     public function getScreenshotByUuid($uuid)
     {
-        $sql = "SELECT name, img, date_added, uuid FROM screenshot WHERE uuid = ?";
+        $sql = "SELECT name, url, date_added, uuid FROM screenshot WHERE uuid = ?";
 
         $screenshot = $this->pdo->prepare($sql);
         $screenshot->bindValue(1, $uuid);

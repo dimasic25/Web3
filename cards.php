@@ -17,7 +17,7 @@ if (count($cards) > 0):
     foreach ($cards as $screenshot): ?>
 
         <div class="card" data-id=<?= $screenshot['id'] ?>>
-            <img src="data:image/jpeg;base64, <?= base64_encode($screenshot['img']) ?>" class="card__photo"
+            <img src=<?= $screenshot['url'] ?> class="card__photo"
                  alt="Нет фото"/>
             <div class="card__info">
                 <a class="card__link" href= <?= "/details.php?uuid=" . $screenshot['uuid'] ?>><span
