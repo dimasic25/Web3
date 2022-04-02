@@ -1,6 +1,6 @@
 <?php
 
-require_once "NewScreenshotValidation.php";
+require_once "validation/NewScreenshotValidation.php";
 require_once "database/ScreenshotPdo.php";
 
 session_start();

@@ -49,9 +49,3 @@ newScreenshotForm.addEventListener("submit", function (e) {
         })
         .catch(error => console.log(error));
 });
-
-function addError($error) {
-    let screenFormErrors = document.querySelector(".screen-form__errors");
-
-    screenFormErrors.innerHTML = "<p>" + $error + "</p> <br/>";
-}

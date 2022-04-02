@@ -1,7 +1,7 @@
 <?php
 
 require_once "database/UserPdo.php";
-require_once "Validation.php";
+require_once "validation/Validation.php";
 
 header('Content-Type: application/json');
 
