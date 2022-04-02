@@ -1,4 +1,9 @@
 @import url("reset.css");
+@import url("header.css");
+@import url("footer.css");
+@import url("modal.css");
+@import url("button.css");
+@import url("card.css");
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -13,115 +18,6 @@ body {
     font-family: 'M PLUS 2', sans-serif;
 }
 
-.sign-in__form, .sign-up__form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.input {
-    padding: 10px 10px 10px 10px;
-    border-radius: 15px;
-    border: none;
-    transition: all 0.1s linear;
-}
-
-.input:focus {
-    opacity: 0.7;
-    font-weight: bold;
-}
-
-.input:required:valid {
-    background-color: #ddffdd;
-}
-
-.input:required:invalid {
-    background-color: #ffdddd;
-}
-
-.btn {
-    border: none;
-    border-radius: 10px;
-    font-family: 'M PLUS 2', sans-serif;
-    font-weight: 600;
-    font-size: 18px;
-    cursor: pointer;
-    background-color: rgb(121, 6, 4);
-    padding: 10px;
-    color: white;
-}
-
-.btn:hover {
-    transition: all 0.2s linear;
-    color: rgb(118, 80, 56);
-}
-
-.modal {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: -1000px;
-    background-color: rgba(15, 36, 110, 0.8);
-    left: 0;
-    right: 0;
-    transition: .3s;
-    display: block;
-    z-index: 1;
-    visibility: hidden;
-    opacity: 0;
-}
-
-.modal_active {
-    position: fixed;
-    top: 0;
-    visibility: visible;
-    opacity: 1;
-    transition: .3s;
-}
-
-.modal__content {
-    border-radius: 15px;
-    margin: 150px auto;
-    opacity: 0.8;
-    background-color: rgb(102, 102, 204);
-}
-
-.modal__close {
-    cursor: pointer;
-    font-size: 30px;
-    font-weight: bold;
-    position: relative;
-    float: right;
-}
-
-.sign-in__modal {
-    max-width: 250px;
-}
-
-.sign-up__modal {
-    max-width: 300px;
-}
-
-.sign-in__content, .sign-up__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.sign-in__content *, .sign-up__content * {
-    margin-top: 10px;
-}
-
-.sign-in__close, .sign-up__close {
-    position: relative;
-    left: -10px;
-}
-
-
-.form__sign-in__btn, .form__sign-up__btn {
-    margin-bottom: 10px;
-}
-
 .container {
     display: flex;
     flex-direction: column;
@@ -130,52 +26,6 @@ body {
 
 .title {
     font-size: 40px;
-}
-
-.header {
-    background: rgb(79, 102, 106) url('../img/header.JPG') no-repeat center bottom;
-    height: 150px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.header__login {
-    color: white;
-    margin-right: 10px;
-    font-size: 20px;
-}
-
-.header__logout-btn {
-    text-decoration: none;
-}
-
-.header__title {
-    font-size: 50px;
-    font-weight: bold;
-    text-align: center;
-    margin-left: 100px;
-}
-
-.header__title a {
-    text-decoration: none;
-    color: white;
-    transition: all 0.2s linear;
-}
-
-.header__title a:hover {
-    color: darkslateblue;
-}
-
-.header__buttons {
-    display: flex;
-    justify-content: right;
-    flex: 150px;
-    margin-right: 15px;
-}
-
-.header__sign-up-btn {
-    margin-left: 10px;
 }
 
 .content {
@@ -191,109 +41,5 @@ body {
 
 .more_cards {
     width: 300px;
-}
-
-.card {
-    transition: all 0.3s linear;
-    width: 300px;
-}
-
-.card:hover {
-    transform: scale(1.03);
-}
-
-.card__link:hover {
-    color: rgb(219, 192, 18);
-}
-
-.card__name:hover {
-    color: rgb(219, 192, 18);
-}
-
-.card__photo {
-    width: 300px;
-    height: 250px;
-    object-fit: cover;
-}
-
-.card__info {
-    display: flex;
-    flex-direction: column;
-    margin-top: 5px;
-    gap: 5px;
-}
-
-.card__info * {
-    color: rgb(255, 76, 91);
-    transition: all 0.2s linear;
-}
-
-.card-details {
-    width: 600px;
-}
-
-.card-details__photo {
-    width: 600px;
-    height: 550px;
-    object-fit: cover;
-}
-
-.card-details__info {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-    gap: 10px;
-}
-
-.card-details__info * {
-    color: rgb(255, 76, 91);
-    transition: all 0.2s linear;
-}
-
-.footer {
-    display: flex;
-    flex: 0 0 auto;
-    margin-top: 25px;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(79, 102, 106);
-    height: 50px;
-    column-gap: 20px;
-}
-
-.footer__author {
-    transition: all 0.2s linear;
-}
-
-.footer__author:hover {
-    color: rgb(255, 76, 91);
-}
-
-.footer__messengers {
-    display: flex;
-    column-gap: 10px;
-}
-
-.footer__messengers * {
-    object-fit: cover;
-    width: 30px;
-    height: 30px;
-}
-
-@media screen and (max-width: 576px) {
-    .header {
-        flex-direction: column;
-        row-gap: 10px;
-        justify-content: center;
-        height: 100px;
-    }
-
-    .header__title {
-        margin: 0 auto;
-    }
-
-    .header__buttons {
-        margin: 0 auto 10px;
-    }
 }
 

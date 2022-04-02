@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'database/ScreenshotPdo.php';
 
 $uuid = @$_GET['uuid'];
