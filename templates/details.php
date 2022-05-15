@@ -1,12 +1,5 @@
 <?php
-session_start();
-require 'database/ScreenshotPdo.php';
-
-$uuid = @$_GET['uuid'];
-
-$pdo = new ScreenshotPdo();
-
-$screenshot = $pdo->getScreenshotByUuid($uuid);
+    $screenshot = $params['screenshot'];
 ?>
 
 <!DOCTYPE html>
@@ -18,36 +11,35 @@ $screenshot = $pdo->getScreenshotByUuid($uuid);
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+2&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="views/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
-<?php require_once 'views/layouts/sign-in.php'; ?>
+<?php require_once '../public/layouts/sign-in.php'; ?>
 
-<?php require_once 'views/layouts/sign-up.php'; ?>
+<?php require_once '../public/layouts/sign-up.php'; ?>
 
 <div class="container">
-    <?php require_once 'views/layouts/header.php'; ?>
+    <?php require_once '../public/layouts/header.php'; ?>
 
     <main class="content">
 
         <div class="card-details">
-            <img src=<?= $screenshot['url'] ?> class="card-details__photo"
-                 alt="Нет фото"/>
+            <img class="card__photo" src=<?= $screenshot['url'] ?> alt="Нет фото"/>
             <div class="card-details__info">
                 <span class="card-details__name"> <?= $screenshot['name'] ?></span>
                 <span class="card-details__data-added"><?= $screenshot['date_added'] ?></span>
             </div>
         </div>
 
-        <a href="index.php">
+        <a href="/">
             <button class="btn">Назад</button>
         </a>
     </main>
 
-    <?php require_once 'views/layouts/footer.php'; ?>
+    <?php require_once '../public/layouts/footer.php'; ?>
 </div>
 
-<script src="views/js/script.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>

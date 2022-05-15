@@ -1,7 +1,15 @@
 <?php
 
+namespace App\Pdo;
+
+
+use Exception;
+use PDO;
+use PDOException;
+
 class DB
 {
+    private const PDO_CONFIG = __DIR__ . '/../../config/config.ini';
     protected $pdo;
 
     public function __construct()
@@ -12,7 +20,7 @@ class DB
     private function connect(): DB
     {
         try {
-            if (!($config = parse_ini_file("config/config.ini"))) {
+            if (!($config = parse_ini_file(self::PDO_CONFIG))) {
                 throw new Exception("Ошибка при парсинге файла конфигурации", 1);
             }
 

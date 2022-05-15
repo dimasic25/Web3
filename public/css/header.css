@@ -1,6 +1,6 @@
 
 .header {
-    background: rgb(79, 102, 106) url('../img/header.JPG') no-repeat center bottom;
+    background: rgb(79, 102, 106) url("../img/header.JPG") no-repeat center bottom;
     height: 150px;
     display: flex;
     justify-content: space-between;

@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Validation;
+
 class NewScreenshotValidation
 {
     private const NAME_FIELD = 'name';
@@ -15,15 +17,18 @@ class NewScreenshotValidation
         $this->screenshot = $file;
     }
 
-    public function isValid(): bool {
+    public function isValid(): bool
+    {
         return $this->validateName() && $this->validateScreenshot();
     }
 
-    public function getErrors(): array {
+    public function getErrors(): array
+    {
         return $this->errors;
     }
 
-    private function validateName(): bool {
+    private function validateName(): bool
+    {
 
         if (!empty($this->name)) {
             return true;
@@ -33,7 +38,8 @@ class NewScreenshotValidation
         }
     }
 
-    private function validateScreenshot(): bool {
+    private function validateScreenshot(): bool
+    {
 
         $extension = strtolower(pathinfo($this->screenshot['name'])['extension']) ?? "";
         $type = $this->screenshot['type'];

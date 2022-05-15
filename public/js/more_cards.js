@@ -14,7 +14,7 @@ function load_more() {
         }
     }
 
-    let url = '/cards.php/?id=' + id;
+    let url = '/cards/?id=' + id;
     let request = new XMLHttpRequest();
     request.open("GET", url);
 

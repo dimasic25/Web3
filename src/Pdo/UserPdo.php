@@ -1,11 +1,14 @@
 <?php
 
-require_once "DB.php";
+namespace App\Pdo;
+
+use PDO;
+use PDOException;
 
 class UserPdo extends DB
 {
 
-    public function save($user)
+    public function save($user): bool
     {
         try {
             $sql = "INSERT INTO user (login, email, phone, password)
@@ -27,7 +30,7 @@ class UserPdo extends DB
         return true;
     }
 
-    public function IsEmailUnique($email)
+    public function IsEmailUnique($email): bool
     {
         $sql = "SELECT * FROM user WHERE email = ?";
 
@@ -44,7 +47,7 @@ class UserPdo extends DB
         $query = $this->pdo->prepare($sql);
         $query->bindValue(1, $email);
         $query->execute();
-        return $query->fetch()['id'];
+        return $query->fetch(PDO::FETCH_ASSOC)['id'];
     }
 
     public function getUserByLogin($login)

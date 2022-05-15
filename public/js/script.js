@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
         authForm.append('login', loginInput.value);
         authForm.append('password', passwordInput.value);
 
-        fetch('auth.php', {
+        fetch('/auth/', {
             method: 'POST',
             body: authForm
         }).then(response => response.json())
@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (result.errors) {
                     alert(result.errors)
                 } else {
-                    window.location.reload();
+                    location.href = location.href;
                 }
             }).catch(error => console.log(error));
     })
@@ -145,13 +145,15 @@ document.addEventListener("DOMContentLoaded", function () {
         let registerForm = new FormData();
         let loginInput = document.querySelector(".sign-up__form__login");
         let passwordInput = document.querySelector(".sign-up__form__password");
+        let emailInput = document.querySelector(".email");
+        let phoneInput = document.querySelector(".phone");
 
         registerForm.append('login', loginInput.value);
         registerForm.append('password', passwordInput.value);
         registerForm.append('email', emailInput.value);
         registerForm.append('phone', phoneInput.value);
 
-        fetch('register.php', {
+        fetch('/register/', {
                 method: 'POST',
                 body: registerForm
             }

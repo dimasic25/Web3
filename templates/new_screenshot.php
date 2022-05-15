@@ -1,5 +1,3 @@
-<?php session_start() ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,16 +7,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+2&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="views/css/add_screen.css">
+    <link rel="stylesheet" href="/css/add_screen.css">
 </head>
 <body>
 
-<?php require_once 'views/layouts/sign-in.php'; ?>
+<?php require_once '../public/layouts/sign-in.php'; ?>
 
-<?php require_once 'views/layouts/sign-up.php'; ?>
+<?php require_once '../public/layouts/sign-up.php'; ?>
 
 <div class="container">
-    <?php require_once 'views/layouts/header.php'; ?>
+    <?php require_once '../public/layouts/header.php'; ?>
 
     <main class="content">
     <?php if (isset($_SESSION['userLogin'])): ?>
@@ -40,10 +38,10 @@
     </main>
 
 
-    <?php require_once 'views/layouts/footer.php'; ?>
+    <?php require_once '../public/layouts/footer.php'; ?>
 </div>
 
-<script src="views/js/script.js"></script>
-<script src="views/js/new_screenshot.js"></script>
+<script src="/js/script.js"></script>
+<script src="/js/new_screenshot.js"></script>
 </body>
 </html>

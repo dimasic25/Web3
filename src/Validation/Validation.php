@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Validation;
 
 class Validation
 {
@@ -13,7 +14,7 @@ class Validation
     private const EMAIL_PATTERN = "/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/";
     private const PHONE_PATTERN = "/[0-9]{11}/";
 
-    public static function validateRegisterRequest($request)
+    public static function validateRegisterRequest($request): array
     {
         return self::validateRequest($request,
             [self::LOGIN_FIELD, self::PASSWORD_FIELD, self::EMAIL_FIELD, self::PHONE_FIELD],
@@ -23,7 +24,7 @@ class Validation
                 self::PHONE_FIELD => self::PHONE_PATTERN]);
     }
 
-    public static function validateAuthRequest($request)
+    public static function validateAuthRequest($request): array
     {
         return self::validateRequest($request,
             [self::LOGIN_FIELD, self::PASSWORD_FIELD],
@@ -31,7 +32,7 @@ class Validation
                 self::PASSWORD_FIELD => self::PASSWORD_PATTERN]);
     }
 
-    private static function validateRequest($request, $fields, $patterns)
+    private static function validateRequest($request, $fields, $patterns): array
     {
         foreach ($request as $field => $value) {
             unset($fields[array_search($field, $fields)]);
@@ -63,13 +64,13 @@ class Validation
         return $errors;
     }
 
-    private static function getEmptyFieldMessage($fieldName)
+    private static function getEmptyFieldMessage($fieldName): array
     {
-        return "Поле " . $fieldName . " обязательное для заполнения!";
+        return ['Поле ' . $fieldName . ' обязательное для заполнения!'];
     }
 
-    private static function getBadFieldMessage($fieldName)
+    private static function getBadFieldMessage($fieldName): array
     {
-        return "Поле " . $fieldName . " некорректное!";
+        return ['Поле ' . $fieldName . ' некорректное!'];
     }
 }

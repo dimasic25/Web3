@@ -9,8 +9,8 @@
             <button class="header__sign-up-btn btn">Зарегистрироваться</button>
         <?php else: ?>
             <p class="header__login">Привет, <?= $_SESSION['userLogin'] ?></p>
-            <a class="header__add_screen-btn btn" href="/new_screenshot.php">Добавить скриншот</a>
-            <a class="header__logout-btn btn" href="/logout.php">Выйти</a>
+            <a class="header__add_screen-btn btn" href="/new_screenshot/">Добавить скриншот</a>
+            <a class="header__logout-btn btn" href="/logout/">Выйти</a>
         <?php endif; ?>
     </div>
 

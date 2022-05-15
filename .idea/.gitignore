@@ -7,5 +7,5 @@
 /dataSources/
 /dataSources.local.xml
 
-/views/css/img/
+/public/img
 /config/config.ini

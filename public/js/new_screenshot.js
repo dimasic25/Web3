@@ -30,10 +30,7 @@ newScreenshotForm.addEventListener("submit", function (e) {
     newScreenshot.append('name', newScreenshotForm.name.value);
     newScreenshot.append('screenshot', screenshot);
 
-    console.log(newScreenshotForm.name.value);
-    console.log(screenshot)
-
-    fetch('save_screen.php', {
+    fetch('/save_screenshot/', {
             method: 'POST',
             body: newScreenshot
         }
@@ -44,7 +41,7 @@ newScreenshotForm.addEventListener("submit", function (e) {
                 let screenFormErrors = document.querySelector(".screen-form__errors");
                 screenFormErrors.innerHTML = "<p>" + result.errors + "</p> <br/>";
             } else {
-                location.href = "/details.php?uuid=" + result.uuid;
+                location.href = "/details/?uuid=" + result.uuid;
             }
         })
         .catch(error => console.log(error));

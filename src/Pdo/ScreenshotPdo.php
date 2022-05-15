@@ -1,6 +1,8 @@
 <?php
 
-require_once "DB.php";
+namespace App\Pdo;
+
+use PDO;
 
 class ScreenshotPdo extends DB
 {
